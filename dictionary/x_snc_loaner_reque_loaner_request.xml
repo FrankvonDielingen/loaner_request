@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element extends="task" label="Loaner Request" max_length="40" name="x_snc_loaner_reque_loaner_request" type="collection"/>
+    <element extends="task" label="Loaner Request" max_length="40" name="x_snc_loaner_reque_loaner_request" sizeclass="3" type="collection">
+        <element label="Depot" max_length="32" name="u_depot" reference="cmn_location" type="reference"/>
+        <element label="End date" max_length="40" name="u_enddate" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Item type" max_length="40" name="u_itemtype" type="string">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="Mobile" label="Item type" max_length="40" name="u_item_type" type="string">
+            <choice>
+                <element label="Mobile" sequence="0" value="Mobile"/>
+                <element label="Tablet" sequence="1" value="Tablet"/>
+                <element label="Laptop" sequence="2" value="Laptop"/>
+                <element label="Desktop" sequence="3" value="Desktop"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Location to be used" max_length="40" name="u_locationtobeused" type="string"/>
+        <element label="Requested for" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
+        <element label="Start date" max_length="40" name="u_start_date" type="glide_date"/>
+    </element>
 </database>
